@@ -25,8 +25,9 @@ var fs = require('fs');//文件(引入一个模块)
 // console.log(data);
 
 //2.异步读取
+//                                         err:错误 ，data:数据
 // fs.readFile('./www/w3.txt','utf8',function(err,data){
-//     // console.log(err);
+//     console.log(err);
 //     // console.log(data.toString());//如果参数中没有utf8  则需要用toString将数据转换成字符串类型
 //     if(err){
 //         console.log("读出错");
