@@ -59,9 +59,9 @@ var fs = require('fs');//文件(引入一个模块)
 // })
 
 
-// 五、监听文件
-// fs.watchFile('./www/t1.txt',function(a,b){
-//     console.log(a)
-// console.log(a.size);
-// // console.log(b)
-// })
+// 五、监听文件是否发生改变
+fs.watchFile('./www/t1.txt',function(a,b){
+    console.log(a)
+console.log(a.size);
+// console.log(b)
+})
