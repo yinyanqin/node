@@ -3,8 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css">  <!-- 1.引入要使用的包-->
 </head>
 <body>
-index
+<!--管理包：-->
+    <!--服务器（后端）包 npm-->
+    <!--客户端（前端）包 bower-->
+
+index页面
+
+<div id="msg">  </div>
+<button class="btn btn-danger" id="sendGet"> 发送get请求 </button>
+<button class="btn btn-danger" id="sendPost"> 发送post请求 </button>
+<button class="btn btn-danger" id="sendPostGet"> 发送post/get请求 </button>
+<button class="btn btn-danger" id="sendD"> 发送get请求，路由传参 </button>
+<!--路由传参 只能是get请求-->
+
+<button class="btn btn-danger" id="sendE"> 发送POST请求，body传参 </button>
+
+
+<script src="components/jquery/dist/jquery.min.js"></script><!-- 1.引入要使用的包-->
+<script>
+    //1.客户端写好ajax请求
+//    2.（fuquqipeizhi.js）在服务器端写配置，并返回给前端
+    sendGet.onclick = function(){  //get请求
+       $.ajax({  //客户端
+           url:"/a",
+           type:"get",
+           success:function(data){
+//               alert(data);
+//               $('#msg').append(data);//将请求的数据赋值给了页面
+//               $('#msg').append("name:"+data.name + '-----'  +  "age:"+data.age);
+               if(data.success){ //如果返回来的success为真 则赋值
+                   $('#msg').append("name:"+data.obj.name + '-----'  +  "age:"+data.obj.age);
+               }
+           }
+       })
+    };
+    sendPost.onclick = function(){ //post请求
+        $.ajax({
+            url:"/b",
+            type:"post",
+            success:function(data){
+                $("#msg").append(data)
+            }
+        })
+    };
+
+    sendPostGet.onclick = function(){//发送post/get请求
+        $.ajax({
+            url:"/d",
+            type:"get",
+            success:function(data){
+                $("#msg").append(data)
+            }
+        })
+    };
+
+    sendD.onclick = function(){ //路由传参
+        $.ajax({
+            url:'/c/1',
+            type:"get",
+            success:function(data){
+               if(data.success){
+                   $("#msg").append(data.obj.name +''+ data.obj.age)
+               }else {
+                   $("#msg").append(data.msg)
+               }
+            }
+        })
+    };
+    sendE.onclick = function(){ //body传参
+        $.ajax({
+            url:'/e',
+            type:"post",
+            data:{
+                name:"tom",
+                age:100
+            },
+            success:function(data){
+                if(data.success){
+                    alert(data.msg)
+                }else {
+                    alert(data.msg)
+                }
+            }
+        })
+    }
+</script>
 </body>
 </html>
