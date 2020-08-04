@@ -1,11 +1,11 @@
 var fs = require('fs');//文件(引入一个模块)
 // 一、写
 // 1.同步的写法
-// console.log('111') //1
-// var res = fs.writeFileSync('./www/w3.txt', '第一个文字','utf8');
-// var res = fs.writeFileSync('./www/w3.txt','第一个文字');//utf8可以省略
-// console.log(res); //2
-// console.log( '222') //3
+console.log('111') //1
+var res = fs.writeFileSync('./www/w3.txt', '第一个文字','utf8');
+var res = fs.writeFileSync('./www/w3.txt','第一个文字');//utf8可以省略
+console.log(res); //2
+console.log( '222') //3
 
 // 2.异步的写法
 // console.log('111') //1

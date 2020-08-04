@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp"><!--ng-app="myapp"-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+<!--1.初始化bower  bower init-->
+<!--2. null>.bowerrc //创建一个.bowerrc的隐藏文件-->
+<!--3.把需要的包拉取下来 bower install bootstrap jquery angular  angular-ui-router --save -->
+<!--4.引入-->
+
+<div ui-view="head"></div>
+<div ui-view="body"></div>
+<div ui-view="food"></div>
+
+
+<script src="components/jquery/dist/jquery.min.js"></script>
+<script src="components/angular/angular.min.js"></script>
+<script src="components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="js/index.js"></script>
+
+
+</body>
+</html>
